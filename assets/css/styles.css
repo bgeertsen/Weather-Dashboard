@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(60,82,145);
+    color: white;
+}
+
+main {
+    height: 100vh;
+}
+
+form {
+    border-bottom: 1px solid gray;
+}
+
+#current-container {
+    border: 1px solid black;
+    height: 40%;
+}
+
+#search-container {
+    height: 100%;
+}

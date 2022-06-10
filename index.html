@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <Header>
+        <h1>Weather Dashboard</h1>
+    </Header>
+    <main class="row">
+        <div class="col-3 mt-3 ps-4" id="search-container">
+            <form id="search-form" class="">
+                <lable class="col-12 my-3 fs-1" for="search">Search for a city: </lable>
+                <input class="my-3 col-12" type="text" id="search">
+                <input class="btn btn-primary mt-1 mb-3 col-12" type="submit">
+            </form>
+            <div id="search-history">
+                <button class="btn btn-secondary col-12 my-1">Seattle</button>
+                <button class="btn btn-secondary col-12 my-1">Portland</button>
+                <button class="btn btn-secondary col-12 my-1">Los Angeles</button>
+                <button class="btn btn-secondary col-12 my-1">New York City</button>
+            </div>
+        </div>
+        <div id="weather-container" class="col-9">
+            <div id="current-container" class="col-12 mb-5">
+                <h1 id="city-title">Seattle</h1>
+            </div>
+            <div id="forcast-container" class="row d-flex justify-content-around">
+                <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Secondary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Secondary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Secondary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Secondary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Secondary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
