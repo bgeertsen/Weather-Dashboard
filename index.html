@@ -34,7 +34,11 @@
         </div>
         <div id="weather-container" class="col-9">
             <div id="current-container" class="col-12 mb-5">
-                <h1 id="city-title">Seattle</h1>
+                <h1 class="mb-5" id="city-title">City: </h1>
+                <h3 id="currentTemp" class="mt-5">Temp: </h3>
+                <h3 id="currentWind" class="py-2">Wind: </h3>
+                <h3 id="currnetHumidity" class="py-2">Humidity: </h3>
+                <h3 id="currentUV" class="py-2">UV Index: </h3>
             </div>
             <div id="forcast-container" class="row d-flex justify-content-around">
                 <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
@@ -75,7 +79,7 @@
             </div>
         </div>
     </main>
-
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

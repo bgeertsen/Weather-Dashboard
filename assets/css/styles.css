@@ -21,3 +21,18 @@ form {
 #search-container {
     height: 100%;
 }
+
+.low {
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    color: black;
+}
+
+.high {
+    background-color: red;
+    color: white;
+}
