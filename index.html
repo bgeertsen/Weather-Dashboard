@@ -22,7 +22,11 @@
         <div class="col-3 mt-3 ps-4" id="search-container">
             <form id="search-form" class="">
                 <lable class="col-12 my-3 fs-1" for="search">Search for a city: </lable>
-                <input class="my-3 col-12" type="text" id="search">
+                <input class="my-3 col-12" type="text" id="searchCity">
+                <lable class="col-12 my-3 fs-2" for="search">State (optional): </lable>
+                <input class="my-3 col-12" type="text" id="searchState">
+                <lable class="col-12 my-3 fs-2" for="search">Country Code (optional): </lable>
+                <input class="my-3 col-12" type="text" id="searchCountry">
                 <input class="btn btn-primary mt-1 mb-3 col-12" type="submit" id="submit">
             </form>
             <div id="search-history">
@@ -42,38 +46,38 @@
             </div>
             <div id="forcast-container" class="row d-flex justify-content-around">
                 <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <div id="day1" class="card-header"></div>
                     <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 id="day1Icon" class="card-title"></h5>
+                      <p id="day1Info" class="card-text"></p>
                     </div>
                   </div>
                   <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <div id="day2" class="card-header"></div>
                     <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 id="day2Icon"  class="card-title"></h5>
+                      <p id="day2Info" class="card-text"></p>
                     </div>
                   </div>
                   <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <div id="day3" class="card-header"></div>
                     <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 id="day3Icon"  class="card-title"></h5>
+                      <p id="day3Info" class="card-text"></p>
                     </div>
                   </div>
                   <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <div id="day4" class="card-header"></div>
                     <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 id="day4Icon"  class="card-title"></h5>
+                      <p id="day4Info" class="card-text"></p>
                     </div>
                   </div>
                   <div class="card text-bg-secondary mb-3 col-2" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <div id="day5" class="card-header"></div>
                     <div class="card-body">
-                      <h5 class="card-title">Secondary card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 id="day5Icon"  class="card-title"></h5>
+                      <p id="day5Info" class="card-text"></p>
                     </div>
                   </div>
             </div>
