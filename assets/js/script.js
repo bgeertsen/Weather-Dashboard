@@ -1,14 +1,16 @@
 let today = moment().format("MMM Do YYYY");
-console.log(today)
+
 let searchCityInput = document.querySelector("#searchCity");
 let searchStateInput = document.querySelector("#searchState");
 let searchCountryInput = document.querySelector("#searchCountry");
 let submitBtn = document.querySelector("#submit")
+let historyDiv = document.querySelector("#search-history")
 const apiKey = "ffe65789d16418b39e33722ce53e0bb8";
 
 let lat = "";
 let lon = "";
 let currentName = "";
+let weatherApiUrl = "";
 
 
 function getLatLon (city, state, country) {
@@ -23,13 +25,9 @@ function getLatLon (city, state, country) {
         return response.json();
     })
     .then(function(data) {
-        console.log(data[0])
         currentName = data[0].name;
         lon = data[0].lon;
         lat = data[0].lat;
-        console.log(city);
-        console.log(`lat: ${lat}`)
-        console.log(`long: ${lon}`)
         
 
         displayWeather();
@@ -43,7 +41,7 @@ function getLatLon (city, state, country) {
         let cityName = document.querySelector("#city-title");
         
 
-        let weatherApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+        weatherApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
 
         fetch(weatherApiUrl)
         .then(function(response){
@@ -54,7 +52,7 @@ function getLatLon (city, state, country) {
             return response.json();
         })
         .then(function(data) {
-            console.log(weatherApiUrl)
+            // console.log(weatherApiUrl)
             // Current Weather conditions
             cityName.innerHTML = `City: ${currentName} (${today}) <img src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" alt="alternatetext">`
             document.querySelector("#currentTemp").textContent = `Temp: ${data.current.temp}`
@@ -72,7 +70,6 @@ function getLatLon (city, state, country) {
             // 5 day forcast day 1
             let day1Date = data.daily[1].dt;
             document.querySelector("#day1").textContent = moment.unix(day1Date).format("dddd MMM Do");
-            console.log(data.daily[1].weather[0].icon)
             document.querySelector("#day1Icon").innerHTML = `<img src="http://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}@2x.png" alt="alternatetext"></img>`
             document.querySelector("#day1Info").innerHTML = `Temp: ${data.daily[1].temp.day}</br> Wind: ${data.daily[1].wind_speed} MPH</br> HUM: ${data.daily[1].humidity}%`
             
@@ -100,11 +97,57 @@ function getLatLon (city, state, country) {
             document.querySelector("#day5Icon").innerHTML = `<img src="http://openweathermap.org/img/wn/${data.daily[5].weather[0].icon}@2x.png" alt="alternatetext"></img>`
             document.querySelector("#day5Info").innerHTML = `Temp: ${data.daily[5].temp.day}</br> Wind: ${data.daily[5].wind_speed} MPH</br> HUM: ${data.daily[5].humidity}%`
 
+            return weatherApiUrl;
+
         })
         .catch(function(error) {
             console.log(error)
         })
     }
+const searchHistory =function() {
+    searchInfo = [searchCityInput.value, searchStateInput.value, searchCountryInput.value]
+    console.log(searchCityInput.value, searchStateInput.value, searchCountryInput.value)
+
+    localStorage.setItem(searchCityInput.value, JSON.stringify(searchInfo));
+}
+
+function loadHistory() {
+    let keys = Object.keys(localStorage);
+    for (let i = 0; i < keys.length; i++) {
+        console.log(keys[i])
+        let historyBtn = document.createElement("button");
+        historyBtn.classList.add("btn", "btn-secondary", "col-12", "my-1");
+        historyBtn.id = `historyBtn${i}`
+        historyBtn.textContent = keys[i];
+        historyBtn.addEventListener("click", historyBtnHandler)
+        historyDiv.appendChild(historyBtn);
+
+    }    
+}
+
+function historyBtnHandler(event) {
+    let key = JSON.parse(localStorage.getItem(event.target.innerHTML))
+
+    let savedCity = key[0];
+    let savedState = key[1];
+    let savedCountry = key[2];
+    getLatLon(savedCity, savedState, savedCountry)
+}
+
+function addBtn() {
+    let historyBtn = document.createElement("button");
+    historyBtn.classList.add("btn", "btn-secondary", "col-12", "my-1");
+
+    historyBtn.textContent = searchCityInput.value;
+    historyBtn.addEventListener("click", historyBtnHandler)
+    historyDiv.appendChild(historyBtn);
+
+    searchCityInput.value = "";
+    searchStateInput.value = "";
+    searchCountryInput.value = "";
+  
+
+}
 
 let searchFormHandler = function(event) {
     event.preventDefault();
@@ -112,7 +155,13 @@ let searchFormHandler = function(event) {
     let state = searchStateInput.value.trim();
     let country = searchCountryInput.value.trim();
     getLatLon(city, state, country);
+    searchHistory();
+    addBtn();
+    
+    
 
 }
+
+loadHistory();
 
 submitBtn.addEventListener("click", searchFormHandler)
