@@ -6,3 +6,4 @@
 
 [Deployed App: ](https://bgeertsen.github.io/Weather-Dashboard/)
 
+![screenshot](./assets/Screenshot%202022-06-14%20124807.png)
