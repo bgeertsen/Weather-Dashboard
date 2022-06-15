@@ -14,7 +14,7 @@ let weatherApiUrl = "";
 
 
 function getLatLon (city, state, country) {
-    let geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+    let geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
 
     fetch(geocodeUrl)
     .then(function(response) {
